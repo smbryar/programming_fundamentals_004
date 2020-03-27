@@ -39,13 +39,8 @@ function showAdults(arr) {
 console.log(showAdults(peopleArray));
 
 // Create an array of objects representing people. They should each have a name, age and profession property. Ensure that some of these people have the profession “lawyer”. Use forEach to count how many people are lawyers.
+// Refactored to use reduce
 function countLawyers(arr) {
-    let count = 0;
-    arr.forEach(function (person) {
-        if (person.profession === "lawyer") {
-            count++;
-        }
-    });
-    return count;
+    return arr.reduce((total,person) => person.profession === "lawyer" ? total + 1 : total,0);
 }
 console.log(countLawyers(peopleArray));

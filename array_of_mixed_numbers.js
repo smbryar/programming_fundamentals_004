@@ -7,23 +7,16 @@ function filterWholeNums(arr) {
 console.log(filterWholeNums(mixedNumArray));
 
 // Create an array of numbers, including some decimal numbers. Use forEach to sum up all the whole numbers.
+// Refactored to use reduce
 function sumWholeNums(arr) {
-    let count = 0;
-    let wholeNums = arr.filter(num => num % 1 === 0);
-    wholeNums.forEach(num => count = count + num);
-    return count;
+    return arr.reduce((total,num) => num % 1 === 0 ? total + num : total); 
 }
 console.log(sumWholeNums(mixedNumArray));
 
 // Create an array of numbers, including some decimal numbers. Use forEach to create a count of how many decimal numbers are in the array.
+// Refactored to use reduce
 function countDecimals(arr) {
-    let count = 0;
-    arr.forEach(function (num) {
-        if (num % 1 !== 0) {
-            count++;
-        }
-    });
-    return count;
+    return arr.reduce((total,num) => num % 1 !== 0 ? total + 1 : total,0);
 }
 console.log(countDecimals(mixedNumArray));
 

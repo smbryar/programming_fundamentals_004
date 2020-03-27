@@ -1,10 +1,9 @@
 const numArray = [1,2000,37,404,512,100];
 
 //Create an array of numbers. Use forEach to create a total of all the numbers.
+// Refactored to use reduce
 function sumArray(arr) {
-    let count = 0;
-    arr.forEach(num => count = count + num);
-    return count;
+    return arr.reduce((total,num) => total + num);
 }
 console.log(sumArray(numArray));
 
